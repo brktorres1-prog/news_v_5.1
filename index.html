@@ -1,0 +1,88 @@
+
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>News — Central Operacional</title>
+<link rel="stylesheet" href="assets/css/style.css">
+<link rel="stylesheet" href="https://unpkg.com/leaflet@1.9.4/dist/leaflet.css" />
+</head>
+<body>
+  <header class="topbar">
+    <div class="left">
+      <img src="assets/img/logo-news.svg" alt="News" class="logo"/>
+      <div class="title-area">
+        <div class="site-title">CON — Central Operacional News</div>
+        <div id="datetime" class="datetime">--/--/----</div>
+      </div>
+    </div>
+    <div class="center">
+      <input id="searchInput" placeholder="Buscar notícia..." />
+    </div>
+    <div class="right">
+      <button id="downloadCsv" class="btn">Baixar CSV</button>
+      <button id="refreshBtn" class="btn primary">Atualizar</button>
+      <button id="openMapBtn" class="btn">Mapa</button>
+    </div>
+  </header>
+
+  <div class="filters-row">
+    <div class="left-filters">
+      <select id="typeFilter">
+        <option value="all">Todos os Tipos</option>
+        <option>Acidente</option>
+        <option>Roubo / Furto</option>
+        <option>Trânsito / Lentidão</option>
+        <option>Interdição</option>
+        <option>Química Amparo</option>
+        <option>Ypê</option>
+        <option>Tixlog</option>
+      </select>
+      <select id="regionFilter">
+        <option value="all">Todas as Regiões</option>
+        <option>Sudeste</option><option>Sul</option><option>Centro-Oeste</option><option>Norte</option><option>Nordeste</option>
+      </select>
+      <select id="roadFilter"><option value="all">Todas as Rodovias</option></select>
+    </div>
+    <div class="metrics-row" id="metricsRow">
+      <div class="metric card"><div class="m-title">Total</div><div id="m-total" class="m-value">0</div></div>
+      <div class="metric card"><div class="m-title">Acidentes</div><div id="m-acidente" class="m-value">0</div></div>
+      <div class="metric card"><div class="m-title">Interdições</div><div id="m-interd" class="m-value">0</div></div>
+      <div class="metric card"><div class="m-title">Trânsito</div><div id="m-transito" class="m-value">0</div></div>
+      <div class="metric card"><div class="m-title">Roubo / Furto</div><div id="m-roubo" class="m-value">0</div></div>
+    </div>
+  </div>
+
+  <main class="main-layout">
+    <section class="left-panel">
+      <div class="charts-area">
+        <h3>📊 Análise das Ocorrências</h3>
+        <div class="charts-row"><canvas id="chartType"></canvas><canvas id="chartRegion"></canvas></div>
+      </div>
+
+      <div class="news-section">
+        <h2>Últimas notícias</h2>
+        <div id="last-collection">Última coleta: -- • 0 itens</div>
+        <div id="newsList" class="news-list"></div>
+      </div>
+    </section>
+
+    <aside class="right-panel">
+      <div class="card"><h3>Situação Climática</h3><div id="climateContent">Carregando...</div></div>
+      <div class="card"><h3>Telefones úteis</h3><pre>Corpo de Bombeiros — 193
+Polícia Militar — 190
+PRF — 191</pre></div>
+      <div class="card"><h3>Concessionárias</h3><ul><li>CCR AutoBAn</li><li>Arteris</li></ul></div>
+    </aside>
+  </main>
+
+  <footer class="footer">CON — Central Operacional News — Torres • Protótipo v2.5</footer>
+
+<script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+<script src="assets/js/main.js"></script>
+<script src="assets/js/charts.js"></script>
+<script src="assets/js/climate.js"></script>
+</body>
+</html>
